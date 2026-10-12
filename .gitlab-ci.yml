@@ -15,6 +15,16 @@ test_job:
     - echo "Exécution des tests..."
     - echo "Tous les tests sont passés."
 
+validate_files:
+  stage: test
+  script:
+    - if [ -f fonctionnalite1.txt ] && [ -f fonctionnalite2.txt ]; then
+        echo "Tous les fichiers sont présents";
+      else
+        echo "Un ou plusieurs fichiers sont manquants";
+        exit 1;
+      fi
+
 deploy_job:
   stage: deploy
   script:
