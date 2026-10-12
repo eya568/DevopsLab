@@ -1,0 +1,51 @@
+name: Mon Premier Pipeline CI/CD
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Recuperer le code
+        uses: actions/checkout@v4
+      - name: Compilation
+        run: |
+          echo "Compilation du projet..."
+          echo "Build termine avec succes."
+
+  test_job:
+    needs: build_job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Recuperer le code
+        uses: actions/checkout@v4
+      - name: Execution des tests
+        run: |
+          echo "Execution des tests..."
+          echo "Tous les tests sont passes."
+
+  validate_files_job:
+    needs: build_job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Recuperer le code
+        uses: actions/checkout@v4
+      - name: Verifier la presence des fichiers
+        run: |
+          if [ -f fonctionnalite1.txt ] && [ -f fonctionnalite2.txt ]; then
+            echo "Tous les fichiers sont presents"
+          else
+            echo "Un ou plusieurs fichiers sont manquants"
+            exit 1
+          fi
+
+  deploy_job:
+    needs: [test_job, validate_files_job]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploiement
+        run: |
+          echo "Deploiement en cours..."
+          echo "Deploiement termine."
