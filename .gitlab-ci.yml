@@ -1,0 +1,22 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build_job:
+  stage: build
+  script:
+    - echo "Compilation du projet..."
+    - echo "Build terminé avec succès."
+
+test_job:
+  stage: test
+  script:
+    - echo "Exécution des tests..."
+    - echo "Tous les tests sont passés."
+
+deploy_job:
+  stage: deploy
+  script:
+    - echo "Déploiement en cours..."
+    - echo "Déploiement terminé."
