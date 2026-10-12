@@ -1,0 +1,2 @@
+Fonctionnalité 2 : Tableau de bord utilisateur
+Cette fonctionnalité affiche les statistiques personnelles de chaque utilisateur.

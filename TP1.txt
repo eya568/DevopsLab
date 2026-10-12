@@ -1,2 +1,3 @@
 TP GitLab !
 Nouvelle fonctionnalité ajoutée.
+Résumé : Ajout de deux nouvelles fonctionnalités : authentification et tableau de bord.
